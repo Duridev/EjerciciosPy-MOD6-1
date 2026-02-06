@@ -6,9 +6,54 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    {% comment %} <h1>Hello, World!</h1>
     <h2>{{ curso }}</h2>
     <h3>Horas: {{ duracion }}</h3>
-    <h3>Nivel: {{ nivel }}</h3>
+    <h3>Nivel: {{ nivel }}</h3> {% endcomment %}
+
+
+    <h1>{{ nombre_tienda }} </h1>
+    <br>
+    <h2>{{ sub1 }} {{ productos|length }}</h2>
+    
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Estado</th>
+        </tr>
+    {% for producto in productos %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.precio }}</td>
+            {% if producto.disponible %}
+            <td style="color: green;">Disponible</td>
+            {% else %}
+            <td style="color: red;">Agotado</td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+    </table>
+
+<style>
+    th, td {
+        font-size: 18px;
+
+        padding: 7px 20px 10px 20px;
+        text-align: left;
+        border-bottom: 2px solid #000;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+
+
+
+</style>
+
 </body>
 </html>
