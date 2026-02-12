@@ -27,7 +27,7 @@
         <tr>
             <td>{{ forloop.counter }}</td>
             <td>{{ producto.nombre }}</td>
-            <td>{{ producto.precio }}</td>
+            <td>$ {{ producto.precio }}</td>
             {% if producto.disponible %}
             <td style="color: green;">Disponible</td>
             {% else %}
@@ -36,6 +36,7 @@
         </tr>
     {% endfor %}
     </table>
+    
 
 <style>
     th, td {
